@@ -1,0 +1,17 @@
+.navbar{
+    height:150px;
+    background-color: azure;
+    display:flex;
+    justify-content: space-between;
+}
+
+.logo{
+    height: 150px;
+    cursor: pointer;
+}
+
+.cart-button{
+    height:80px;
+    margin: 20px;
+    cursor: pointer;
+}
