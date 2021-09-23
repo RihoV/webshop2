@@ -1,8 +1,60 @@
 <button (click)="onEmptyCart()">Tühjenda ostukorv</button>
 
+<!--React: <button onClick={function}>Tühjenda ostukorv</button> -->
+
+<!-- 
+  html:  <button id="id">Tühjenda ostukorv</button>
+  js:  document,getElementById("id-mille-abil-soon-kätte").addEventListener(); 
+-->
+
+  <!-- 
+    cartItems=[{title: "Ese1"},{title: "Ese2"}, ...]
+    cartItem={title:"Ese1", price: "123", ...} 
+    -->
 <div *ngFor="let cartItem of cartItems">
     <div>{{cartItem.title}}</div>
     <div>{{cartItem.price}}</div>
     <div>{{cartItem.imgSrc}}</div>
     <button (click)="onRemoveFromCart(cartItem)">x</button>
+    <!-- TS: onRemoveFromCart({title: "Ese1", price: "123", ...})
+            onRemoveFromCart({title: "Ese1", price: "123", ...}) {
+                console.log({title: "Ese1", price: "123", ...})
+                let index = this.CartItems.indexOf(cartItem);
+
+                teen uue lokaalse muutuja index, mille nimi on suvaline
+                -miks lokaalne: sest kasutan seda ainult siin funktsioonis
+
+                -teine variant let index muutujale on klassimuutuja:
+                    lisan class üles index ja pöördun selle poole this.index abil
+                    cartItems = []
+                    kui pöördun selle poole, siis this. cartItems
+                
+                -miks cartItems klassimuutuja
+                    klassimuutujaid saaan kasutada mitmes funktsioonis ja/või HTML's
+
+                terve projecti saan kirjutada ilma let muutujateta, see tähendab, et
+                kõiki muutujaid saan kasutada HTML's ja mitmes funktsioonis, aga ilus
+                ja korrektne on, et kui ma kasytan midagi vaid ühes funktsioonis, siis
+                ta on let muutuja
+
+                let index = this.CartItems.indexOf(cartItem);
+
+                indexOf funktsioone saan kasutada massiivides
+                kui kirjutan muutuja välja ja vajutan ".", siis ta pakub välja, mida
+                kõike saan selle muutujaga teha
+
+
+                let index = this.CartItems.indexOf(cartItem); // sama, mis alumine
+                let index = [{title: "Ese1"},{title: "Ese2"}, ...].indexOf(({title: "Ese1", price: "123", ...}));
+                let index = 0;
+
+                this.cartItems.splice(index,1);
+                [{title: "Ese1"},{price: "123"}, ...].splice(0,1);
+
+
+            }
+    
+    -->
 </div>
+
+<div>{{ sumOfCart }}</div>

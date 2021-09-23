@@ -8,12 +8,40 @@ import { CartService } from '../services/cart.service';
 })
 export class CartComponent implements OnInit {
   cartItems: any[] = [];
+  sumOfCart = 0;
 
+  // Service-i Componenti lisamine, et saaks andmeid Componentide vahe liigutada
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     console.log("Jõudsin Cart componenti");
     this.cartItems = this.cartService.cartItemsInService;
+                   // = this. -- näitab, mis kõik on klassi sees
+                   // = this.cartService -- näita, kõik, mis on cartService sees
+                   // = this.cartService.cartItemsInService
+                   // (kui olen 2 korda vajutanud esimesele esemele .push() )
+                   // = [{title: "Ese1"},{price: "123"}, ..., {title: "Ese1"},{price: "123"}, ...]
+
+   this.sumOfCart = 0;
+   this.cartItems.forEach(cartItem=>this.sumOfCart = this.sumOfCart + cartItem.price);
+  }
+
+  onEmptyCart() {
+    this.cartItems=[];
+    this.sumOfCart = 0;
+    //a) [{title: "Ese1"},{price: "123"}, ..., {title: "Ese1"},{price: "12"}, {title: "Ese3"},{price: "100"}]  .forEach()
+    //b) 1. this.cartItems.forEach({title: "Ese1"},{price: "123"},...) =>{});
+    //b) 2. this.cartItems.forEach({title: "Ese2"},{price: "12"},...) =>{});
+    //b) 3. this.cartItems.forEach({title: "Ese3"},{price: "100"},...) =>{});
+    //c) 1. this.cartItems.forEach(cartItem=> = 123 = 0 + 123
+    //c) 2. this.cartItems.forEach(cartItem=> = 135 = 123 + 12
+    //c) 3. this.cartItems.forEach(cartItem=> = 235 = 135 + 100
+    this.cartItems.forEach(cartItem=>this.sumOfCart = this.sumOfCart + cartItem.price);
+    // let muutuja of array
+    //siin div sees kuvatakse nii mitu korda
+    //array.forEach(muutuja=>)
+    //minnakse nii mitu korda funktsiooni tegema,
+    //  nii mitu korda, kui on elemente massiivis
   }
 
   onRemoveFromCart(cartItem: any) {
@@ -21,10 +49,8 @@ export class CartComponent implements OnInit {
     //this.cartItems.splice(cartItem.length-1,1);
     this.cartItems.splice(index,1);
     //console.log(index);
-  }
-
-  onEmptyCart() {
-    this.cartItems=[];
+    this.sumOfCart = 0;
+     this.cartItems.forEach(cartItem=>this.sumOfCart = this.sumOfCart + cartItem.price);
   }
 
 
