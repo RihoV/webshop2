@@ -1,0 +1,17 @@
+<button routerLink="..">Tagasi</button>
+
+<div *ngFor="let item of items">
+
+    <div>-------------------------------------------------------------------------------------------------------------------</div>
+
+    <div>{{ item.imgSrc }}</div>
+    <div>{{ item.title }}</div>
+    <div>{{ item.price }}</div>
+    <div>{{ item.category }}</div>
+    <div>{{ item.isActive }}</div>
+
+    <button (click)="onRemoveItem(item)">Kustuta</button>
+
+
+</div>
+

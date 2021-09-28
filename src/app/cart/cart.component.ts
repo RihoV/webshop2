@@ -27,7 +27,8 @@ export class CartComponent implements OnInit {
   }
 
   onEmptyCart() {
-    this.cartItems=[];
+    this.cartService.cartItemsInService=[];
+    this.cartItems = this.cartService.cartItemsInService;
     this.sumOfCart = 0;
     //a) [{title: "Ese1"},{price: "123"}, ..., {title: "Ese1"},{price: "12"}, {title: "Ese3"},{price: "100"}]  .forEach()
     //b) 1. this.cartItems.forEach({title: "Ese1"},{price: "123"},...) =>{});
@@ -45,12 +46,13 @@ export class CartComponent implements OnInit {
   }
 
   onRemoveFromCart(cartItem: any) {
-    let index = this.cartItems.indexOf(cartItem);
-    //this.cartItems.splice(cartItem.length-1,1);
-    this.cartItems.splice(index,1);
+    let index = this.cartService.cartItemsInService.indexOf(cartItem);
+    this.cartService.cartItemsInService.splice(index,1);
+    this.cartItems = this.cartService.cartItemsInService;
     //console.log(index);
+
     this.sumOfCart = 0;
-     this.cartItems.forEach(cartItem=>this.sumOfCart = this.sumOfCart + cartItem.price);
+    this.cartItems.forEach(cartItem=>this.sumOfCart = this.sumOfCart + cartItem.price);
   }
 
 
