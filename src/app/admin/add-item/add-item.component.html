@@ -1,1 +1,27 @@
 <button routerLink="..">Tagasi</button>  <!-- routerLink="/admin" , tagasi admin lehele -->
+
+<br><br>
+
+<form (ngSubmit)="onSubmit(addItemForm)" #addItemForm="ngForm">
+    <label>Pealkiri</label> <br>
+    <input ngModel name="title" type="text" required> <br>
+
+    <label>Hind</label> <br>
+    <input ngModel name="price" type="number" required> <br>
+
+    <label>Kategooria</label> <br>
+    <!-- <input ngModel name="category" type="text"> <br> -->
+    <select ngModel name="category" required>
+        <option value="comics">Comics</option>
+        <option value="else">Else</option>
+      </select>
+      <br>
+
+    <label>Pilt</label> <br>
+    <input ngModel name="imgSrc" type="text" required> <br>
+
+    <label>Nähtav</label> <br>
+    <input ngModel name="isActive" type="checkbox" required> <br>
+
+    <button>Lisa ese</button>
+</form>
