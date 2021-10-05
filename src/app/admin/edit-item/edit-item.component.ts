@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditItemComponent implements OnInit {
 
+  id!: any;
+  item!: any;
+
   constructor() { }
 
   ngOnInit(): void {
