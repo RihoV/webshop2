@@ -1,0 +1,17 @@
+
+<div>
+    <img src="{{item.imgSrc}}" alt="">
+    <div>{{ item.title }}</div>
+    <div>{{ item.price }}</div>
+    <div>{{ item.category }}</div>
+    <div>{{ item.isActive }}</div>
+    <button (click)="addToCart(item)">Lisa ostukorvi</button>
+</div>
+
+
+<!-- Lisa ostukorvi peaks kutsuma click abil mingi funktsiooni välja  -->
+<!-- .ts failis peab see funktsioon olemas olema -->
+<!-- funktsioon peab saatma selle eseme HTML-st TS-i -->
+<!-- .ts fail peab selle eseme funktsiooni sulgude sees vastu võtma -->
+<!-- constructoris peab olema olemas ühendus CartService-ga -->
+<!-- funktsiooni sees teen push käsu CartService massiivi -->

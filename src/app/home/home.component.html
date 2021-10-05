@@ -1,7 +1,9 @@
 <!-- <p>home works!</p> -->
 
 <div class="products" *ngFor="let item of items">
-    <img class="pics" src="{{item.imgSrc}}" alt="">
+    <!-- <img src="{{item.imgSrc}}" alt=""> -->
+    <img routerLink="ese/{{item.title}}" src="{{item.imgSrc}}" alt=""> 
+    <!-- kaldkriipsud imgage title sees ei tööta -->
     <div>{{ item.title }}</div>
     <div>{{ item.price }}</div>
     <div>{{ item.category }}</div>

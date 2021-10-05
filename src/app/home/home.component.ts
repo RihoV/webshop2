@@ -35,4 +35,5 @@ onAddToCart(item: any) {
 
   this.cartService.cartItemsInService.push(item);
 }
+
 }
