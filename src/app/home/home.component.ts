@@ -8,6 +8,7 @@ import { ItemService } from '../services/item.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  // kooloniga annab tüübi, võrdusmäärgiga väärtuse
   items: any[] = [];
 
   //erinevate failide ühendus toimub constructor sees
@@ -27,6 +28,8 @@ export class HomeComponent implements OnInit {
     console.log("Jõudsin Home componenti");
   }
 
+  //saates peab olema see muutuja olemas
+ //vastuvõttes peab olema tüüp 
 onAddToCart(item: any) {
   console.log(item);
   //console.log(this.items);

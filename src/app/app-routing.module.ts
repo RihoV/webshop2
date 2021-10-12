@@ -15,15 +15,18 @@ import { ViewComponent } from './home/view/view.component';
 // localhost:4200/ järel
 
 const routes: Routes = [
+  // {path: localhost:4200/, component: home.component.html + .css ja .ts}
   { path: "", component: HomeComponent },
+  // {path: localhost:4200/ostukorv, component: cart.component.html + .css ja .ts}
   { path: "ostukorv", component: CartComponent },
   // home html külge
   // ="ese/{{item.title}}"
   // { path: "ese/:itemId/:price", component: ViewComponent },
+
   { path: "ese/:itemId", component: ViewComponent },
   { path: "admin", component: AdminHomeComponent },
   { path: "admin/lisa-ese", component: AddItemComponent },
-  { path: "admin/muuda-ese", component: EditItemComponent },
+  { path: "admin/muuda-ese/:itemId", component: EditItemComponent },
   { path: "admin/esemed", component: ViewItemsComponent },
 ];
 

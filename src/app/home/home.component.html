@@ -1,5 +1,8 @@
-<!-- <p>home works!</p> -->
-
+<!--1. otsitakse üles .ts failist muutuja nimega items 
+    2. selle asemele tuleb väärtus [{title: "", price: ""...},{...}]
+    3. ngFor html sisu korrutatakse nii mitu korda, kui palju neid elemente on
+    4. muutuja, mis on kirjutatud "let" järel muutub nii palju, kui neid elemente on
+    5. kuna tegemist on objektiga, pean väärtustele ligipääsemiseks kasutama võtit-->
 <div class="products" *ngFor="let item of items">
     <!-- <img src="{{item.imgSrc}}" alt=""> -->
     <img routerLink="ese/{{item.title}}" src="{{item.imgSrc}}" alt=""> 
@@ -17,3 +20,5 @@
         .push({title:"Ese1", price: "123", ...})
     }
  -->
+
+ <!-- teatmik.ee - palkade statistika-->

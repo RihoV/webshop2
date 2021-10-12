@@ -1,8 +1,19 @@
 <!-- <div class="midagi">midagi</div>
 
 <div class="title">{{ title }}</div> -->
+
+<!-- app.component.html on alati nähtav, kõik mis siin sees on, on kõikidel lehtedel -->
+
+<!--siin võtan kasutuysele navbar.cmponent.html-i,
+saan komplektis saada .css ja .ts faili
+.css on kijunduseks
+.ts on dünaamilisuse jaoks
+-->
 <app-navbar></app-navbar>
+
 <router-outlet></router-outlet>
+<!-- võtab app-routin.module.ts failist kõik seosed
+   ja näitab vastavat componenti -->
 
 <!-- 
   lisa ülemisele div, millele on klass title, lisa css kus:
