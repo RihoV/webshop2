@@ -1,6 +1,48 @@
-<button routerLink="..">Tagasi</button>
+<button routerLink="/admin/esemed">Tagasi</button>
 
 <form (ngSubmit)="onSubmit()" [formGroup]="editItemForm">
+    <label>Pealkiri </label> <br>
+    <input formControlName="title" type="text" required> <br>
+
+    <label>Hind</label> <br>
+    <input formControlName="price" type="number" required> <br>
+
+    <label>Kategooria</label> <br>
+    <!-- <input ngModel name="category" type="text"> <br> -->
+    <select formControlName="category" required>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+      </select>
+      <br>
+
+    <label>Pilt</label> <br>
+    <input formControlName="imgSrc" type="text" required> <br>
+
+    <label>Nähtav</label> <br>
+    <input formControlName="isActive" type="checkbox" required> <br>
+
+    <button [disabled]="editItemForm.invalid">Lisa ese</button>
 </form>
 
 
+<!-- 
+    1. eseme muutmine
+    2. vormi valideerimine
+    3. dropdowm edit ja add-item sees
+
+    REEDE
+    4. category-sid saab lisada/kustutada, hoiame neid sercvice-s
+
+    TEISIPÄEV
+    5. tõlked
+    6. tüübid
+
+    KOLMAPÄEV
+    7. sorteerimine
+    8. andmebaas
+
+    9. Subject - võimekus panna ühest Componendist teise Componendi 
+        funktsiooni käima
+ -->

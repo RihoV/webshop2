@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { CategoryService } from 'src/app/services/category.service';
 import { ItemService } from 'src/app/services/item.service';
 
 
@@ -11,9 +12,18 @@ import { ItemService } from 'src/app/services/item.service';
 })
 export class AddItemComponent implements OnInit {
 
-  constructor(private itemService: ItemService) { }
+  titleTouched = false;
+  categories: string[]= [];
+
+  constructor(private itemService: ItemService,
+    private categoryService: CategoryService) { }
 
   ngOnInit(): void {
+    this.categories = this.categoryService.categoriesInService;
+  }
+
+  onChangeTitle(){
+    this.titleTouched = true;
   }
 
   onSubmit(addItemForm: NgForm) {

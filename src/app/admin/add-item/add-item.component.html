@@ -2,9 +2,12 @@
 
 <br><br>
 
+<!-- span on nii lai ja kõrge palju temas on sisu -->
+<!-- div on nii lai kui on ekraan ja nii kürge palju temas on sisu -->
+
 <form (ngSubmit)="onSubmit(addItemForm)" #addItemForm="ngForm">
-    <label>Pealkiri</label> <br>
-    <input ngModel name="title" type="text" required> <br>
+    <label>Pealkiri <span class="red" *ngIf="titleTouched && !addItemForm.value.title">*</span> </label> <br>  
+    <input ngModel name="title" (keypress)="onChangeTitle()" type="text" required> <br>
 
     <label>Hind</label> <br>
     <input ngModel name="price" type="number" required> <br>
@@ -12,10 +15,14 @@
     <label>Kategooria</label> <br>
     <!-- <input ngModel name="category" type="text"> <br> -->
     <select ngModel name="category" required>
-        <option value="volvo">Volvo</option>
+
+      <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+
+        <!-- <option value="volvo">Volvo</option>
         <option value="saab">Saab</option>
         <option value="opel">Opel</option>
-        <option value="audi">Audi</option>
+        <option value="audi">Audi</option> -->
+
       </select>
       <br>
 
@@ -23,7 +30,7 @@
     <input ngModel name="imgSrc" type="text" required> <br>
 
     <label>Nähtav</label> <br>
-    <input ngModel name="isActive" type="checkbox" required> <br>
+    <input ngModel name="isActive" type="checkbox"> <br>
 
-    <button>Lisa ese</button>
+    <button [disabled]="addItemForm.invalid">Lisa ese</button>
 </form>
