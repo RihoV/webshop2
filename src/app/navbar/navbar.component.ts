@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
  // MUUTUJA = "";
 
-  constructor() { }
+  constructor(private translate: TranslateService) { }
 
   ngOnInit(): void {
     console.log("Jõudsin navbar componenti!");
   }
+
+  useLanguage(language: string): void {
+    this.translate.use(language);
+}
 
 }

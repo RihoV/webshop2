@@ -1,5 +1,7 @@
 <div class="navbar">
     <img class="logo" routerLink="/" src="assets/webshio.png" alt="">
-    <button routerLink="admin">Admin vaatesse</button>
+    <button routerLink="admin">{{'Admini vaatesse' | translate}}</button>
+    <button (click)="useLanguage('en')">en</button>
+    <button (click)="useLanguage('ee')">de</button>
     <img class="cart-button" routerLink="ostukorv" src="assets/cart.svg" alt="">
 </div>

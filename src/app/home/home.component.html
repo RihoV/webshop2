@@ -3,6 +3,7 @@
     3. ngFor html sisu korrutatakse nii mitu korda, kui palju neid elemente on
     4. muutuja, mis on kirjutatud "let" järel muutub nii palju, kui neid elemente on
     5. kuna tegemist on objektiga, pean väärtustele ligipääsemiseks kasutama võtit-->
+
 <div class="products" *ngFor="let item of items">
     <!-- <img src="{{item.imgSrc}}" alt=""> -->
     <img routerLink="ese/{{item.title}}" src="{{item.imgSrc}}" alt=""> 
@@ -11,8 +12,8 @@
     <div>{{ item.price }}</div>
     <div>{{ item.category }}</div>
     <div>{{ item.isActive }}</div>
-    <button (click)="onAddToCart(item)">Lisa Ostukorvi</button>
 </div>
+<button (click)="onAddToCart(item)">{{'Lisa Ostukorvi' | translate}}</button>
 
 
 <!-- 
@@ -21,4 +22,4 @@
     }
  -->
 
- <!-- teatmik.ee - palkade statistika-->
+ <!-- teatmik.ee - palkade statistika   | -->

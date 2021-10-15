@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,7 @@ import { FormsModule }   from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'webshop projekt';
+  constructor(private translate: TranslateService) {
+    translate.setDefaultLang('en');
+}
 }

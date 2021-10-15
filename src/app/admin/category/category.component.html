@@ -1,0 +1,15 @@
+
+<form (ngSubmit)="onSubmit(addCategoryForm)" #addCategoryForm="ngForm">
+<label>Kategooria</label>
+<input ngModel name="category" type="text">
+<button>Lisa kategooria</button>
+</form>
+
+<br><br>
+
+<div *ngFor="let category of categories">
+  <div>{{ category }}</div>
+  <button (click)="onDeleteCategory(category)">X</button>
+  <br> <br>
+</div>
+

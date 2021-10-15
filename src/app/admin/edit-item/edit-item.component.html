@@ -6,14 +6,18 @@
 
     <label>Hind</label> <br>
     <input formControlName="price" type="number" required> <br>
-
+d
     <label>Kategooria</label> <br>
     <!-- <input ngModel name="category" type="text"> <br> -->
     <select formControlName="category" required>
-        <option value="volvo">Volvo</option>
+
+        <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+
+      <!--  <option value="volvo">Volvo</option>
         <option value="saab">Saab</option>
         <option value="opel">Opel</option>
-        <option value="audi">Audi</option>
+        <option value="audi">Audi</option> -->
+
       </select>
       <br>
 
