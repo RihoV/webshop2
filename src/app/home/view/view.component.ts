@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Item } from 'src/app/models/item.model';
 import { CartService } from 'src/app/services/cart.service';
 import { ItemService } from 'src/app/services/item.service';
 
@@ -9,8 +10,8 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./view.component.scss']
 })
 export class ViewComponent implements OnInit {
-  id!: any;
-  item!: any; //item!: {title, string}; 1 object
+  id!: string;
+  item!: Item; //item!: {title, string}; 1 object
   //items: any[] = [];
 
   // kuvage HTML-is
@@ -29,7 +30,12 @@ export class ViewComponent implements OnInit {
               private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get("itemId");
+    //this.id = this.route.snapshot.paramMap.get("itemId");
+
+    let urlID = this.route.snapshot.paramMap.get("itemId");
+    if(urlID){
+        this.id = urlID;
+    }
                     // [{title: "Ese1"},{},{}].find();
 
                     //.find({title: "Ese1"} => item.title == this.id)
@@ -41,11 +47,16 @@ export class ViewComponent implements OnInit {
                     //.find({title: "Ese3"} => item.title == "itemId kaudu välja url-st")
 
     // console.log(this.id);
-    this.item = this.itemService.itemsInService.find(item => item.title == this.id);
+    //this.item = this.itemService.itemsInService.find(item => item.title == this.id);
+
+    let urlFind = this.itemService.itemsInService.find(item => item.title == this.id);
+    if(urlFind){
+        this.item = urlFind;
+    }
     // console.log(this.item);
     }
     
-    addToCart(item: any) {
+    addToCart(item: Item) {
       	this.cartService.cartItemsInService.push(item);
     }
 }

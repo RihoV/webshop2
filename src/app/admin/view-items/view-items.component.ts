@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from 'src/app/models/item.model';
 import { ItemService } from 'src/app/services/item.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./view-items.component.scss']
 })
 export class ViewItemsComponent implements OnInit {
-  items: any[] = [];
+  items: Item[] = [];
 
   //itemSevicega teha ühendus
   constructor(private itemService: ItemService) { }
@@ -17,7 +18,7 @@ export class ViewItemsComponent implements OnInit {
     this.items = this.itemService.itemsInService;
   }
 
-  onRemoveItem(item: any){
+  onRemoveItem(item: Item){
     // tehtud varem cart.component seest removeFromCart(item: any);
     let index = this.itemService.itemsInService.indexOf(item);
     this.itemService.itemsInService.splice(index,1);

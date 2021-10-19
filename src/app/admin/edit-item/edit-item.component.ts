@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Item } from 'src/app/models/item.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { ItemService } from 'src/app/services/item.service';
 
@@ -11,8 +12,8 @@ import { ItemService } from 'src/app/services/item.service';
 })
 export class EditItemComponent implements OnInit {
 
-  id!: any;
-  item!: any;
+  id!: string;
+  item!: Item;
   editItemForm!: FormGroup;
 
   titleTouched = false;
@@ -31,8 +32,21 @@ export class EditItemComponent implements OnInit {
 
     this.categories = this.categoryService.categoriesInService;
 
-    this.id = this.route.snapshot.paramMap.get("itemId");
-    this.item = this.itemService.itemsInService.find(item => item.title == this.id);
+    // if slle jaoks kui ei leia seda id'd üles
+    //üleval on tüüp string
+    //kui ei leia, paneb tüübi null
+   let urlID = this.route.snapshot.paramMap.get("itemId");
+    if (urlID){
+      this.id = urlID;
+    }
+
+
+    let itemFound = this.itemService.itemsInService.find(item => item.title == this.id);
+
+    if(itemFound){
+      this.item = itemFound;
+    }
+
 
     this.editItemForm = new FormGroup({
       title: new FormControl(this.item.title),

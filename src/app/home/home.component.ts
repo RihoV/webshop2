@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from '../models/item.model';
 import { CartService } from '../services/cart.service';
 import { ItemService } from '../services/item.service';
 
@@ -9,7 +10,7 @@ import { ItemService } from '../services/item.service';
 })
 export class HomeComponent implements OnInit {
   // kooloniga annab tüübi, võrdusmäärgiga väärtuse
-  items: any[] = [];
+  items: Item[] = [];
 
   //erinevate failide ühendus toimub constructor sees
   //private MUUTUJA_NIMI; Fail_Mida_Ühendan
@@ -30,7 +31,7 @@ export class HomeComponent implements OnInit {
 
   //saates peab olema see muutuja olemas
  //vastuvõttes peab olema tüüp 
-onAddToCart(item: any) {
+onAddToCart(item: Item) {
   console.log(item);
   //console.log(this.items);
   //console.log("Vajutati nuppu!");
