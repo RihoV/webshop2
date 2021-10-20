@@ -45,16 +45,16 @@ export class EditItemComponent implements OnInit {
 
     if(itemFound){
       this.item = itemFound;
+
+      this.editItemForm = new FormGroup({
+        title: new FormControl(this.item.title),
+        imgSrc: new FormControl(this.item.imgSrc),
+        price: new FormControl(this.item.price),
+        category: new FormControl(this.item.category),
+        isActive: new FormControl(this.item.isActive),
+      });
     }
 
-
-    this.editItemForm = new FormGroup({
-      title: new FormControl(this.item.title),
-      imgSrc: new FormControl(this.item.imgSrc),
-      price: new FormControl(this.item.price),
-      category: new FormControl(this.item.category),
-      isActive: new FormControl(this.item.isActive),
-    });
   }
 
   onSubmit()  {

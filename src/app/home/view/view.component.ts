@@ -10,7 +10,7 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./view.component.scss']
 })
 export class ViewComponent implements OnInit {
-  id!: string;
+  id!: string; //hüüumärgiga ei anna koheselt väärtust
   item!: Item; //item!: {title, string}; 1 object
   //items: any[] = [];
 

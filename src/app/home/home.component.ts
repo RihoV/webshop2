@@ -40,4 +40,23 @@ onAddToCart(item: Item) {
   this.cartService.cartItemsInService.push(item);
 }
 
+
+onSortTitleAsc(){
+  //users.sort((a, b) => a.firstname.localeCompare(b.firstname))
+  this.items.sort((a, b) => a.title.localeCompare(b.title));
+
+}
+
+onSortTitleDesc(){
+  this.items.sort((a, b) => b.title.localeCompare(a.title));
+}
+
+onSortPriceAsc(){
+  //homes.sort((a, b) => parseFloat(a.price) - parseFloat(b.price))
+  this.items.sort((a, b) => a.price - b.price);
+}
+
+onSortPriceDesc(){
+  this.items.sort((a, b) => b.price - a.price);
+}
 }

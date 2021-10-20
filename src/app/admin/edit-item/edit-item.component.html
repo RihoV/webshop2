@@ -1,6 +1,6 @@
 <button routerLink="/admin/esemed">Tagasi</button>
 
-<form (ngSubmit)="onSubmit()" [formGroup]="editItemForm">
+<form *ngIf="item" (ngSubmit)="onSubmit()" [formGroup]="editItemForm">
     <label>Pealkiri </label> <br>
     <input formControlName="title" type="text" required> <br>
 
@@ -30,6 +30,9 @@ d
     <button [disabled]="editItemForm.invalid">Lisa ese</button>
 </form>
 
+<div *ngIf="!item" class="item-not-found">
+  Eset ei leitud!
+</div>
 
 <!-- 
     1. eseme muutmine

@@ -25,6 +25,10 @@ export class ViewItemsComponent implements OnInit {
     this.items = this.itemService.itemsInService;
   }
 
+  onAddItemsToDatabase(){
+      this.itemService.addItemsToDatabase().subscribe();
+  }
+
 }
 
 //home.component.html-st võtta ka html -

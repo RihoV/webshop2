@@ -1,12 +1,26 @@
-
-<div>
-    <img src="{{item.imgSrc}}" alt="">
-    <div>{{ item.title }}</div>
-    <div>{{ item.price }}</div>
-    <div>{{ item.category }}</div>
-    <div>{{ item.isActive }}</div>
-    <button (click)="addToCart(item)">Lisa ostukorvi</button>
+<div *ngIf="item" class="item-css">
+    <div>
+        <img src="{{item.imgSrc}}" alt="">
+        <div>{{ item.title }}</div>
+        <div>{{ item.price }}</div>
+        <div>{{ item.category }}</div>
+        <div>{{ item.isActive }}</div>
+        <button (click)="addToCart(item)">Lisa ostukorvi</button>
+    </div>
 </div>
+
+<!-- !item - hüüumärk keerab väärtuse vastupidiseks -->
+
+<div *ngIf="!item" class="item-not-found">
+    Eset ei leitud!
+</div>
+
+
+
+
+
+
+
 
 
 <!-- Lisa ostukorvi peaks kutsuma click abil mingi funktsiooni välja  -->

@@ -4,12 +4,20 @@
     4. muutuja, mis on kirjutatud "let" järel muutub nii palju, kui neid elemente on
     5. kuna tegemist on objektiga, pean väärtustele ligipääsemiseks kasutama võtit-->
 
+<button (click)="onSortTitleAsc()">Sorteeri A-Z</button>
+<button (click)="onSortTitleDesc()">Sorteeri Z-A</button>
+<button (click)="onSortPriceAsc()">Hind kasvavalt</button>
+<button (click)="onSortPriceDesc()">Hind kahanevalt</button>
+
+
+<br><br>
+
 <div class="products" *ngFor="let item of items">
     <!-- <img src="{{item.imgSrc}}" alt=""> -->
     <img routerLink="ese/{{item.title}}" src="{{item.imgSrc}}" alt=""> 
     <!-- kaldkriipsud imgage title sees ei tööta -->
     <div>{{ item.title }}</div>
-    <div>{{ item.price }}</div>
+    <div>{{ item.price }} €</div>
     <div>{{ item.category }}</div>
     <div>{{ item.isActive }}</div>
 
