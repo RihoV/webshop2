@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,9 +16,11 @@ import { AddItemComponent } from './admin/add-item/add-item.component';
 import { EditItemComponent } from './admin/edit-item/edit-item.component';
 import { ViewItemsComponent } from './admin/view-items/view-items.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
-import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { ViewComponent } from './home/view/view.component';
 import { CategoryComponent } from './admin/category/category.component';
+import { ViewUsersComponent } from './admin/users/view-users/view-users.component';
+import { AddUserComponent } from './admin/users/add-user/add-user.component';
+import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -30,7 +34,10 @@ import { CategoryComponent } from './admin/category/category.component';
     ViewItemsComponent,
     AdminHomeComponent,
     ViewComponent,
-    CategoryComponent
+    CategoryComponent,
+    ViewUsersComponent,
+    AddUserComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
