@@ -2,7 +2,7 @@
     <div>
         <img src="{{item.imgSrc}}" alt="">
         <div>{{ item.title }}</div>
-        <div>{{ item.price }}</div>
+        <div>{{ item.price | itemPrice }}</div>
         <div>{{ item.category }}</div>
         <div>{{ item.isActive }}</div>
         <button (click)="addToCart(item)">Lisa ostukorvi</button>

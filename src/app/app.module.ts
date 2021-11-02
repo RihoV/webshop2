@@ -21,6 +21,7 @@ import { CategoryComponent } from './admin/category/category.component';
 import { ViewUsersComponent } from './admin/users/view-users/view-users.component';
 import { AddUserComponent } from './admin/users/add-user/add-user.component';
 import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
+import { ItemPricePipe } from './pipes/item-price.pipe';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
     CategoryComponent,
     ViewUsersComponent,
     AddUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    ItemPricePipe
   ],
   imports: [
     BrowserModule,

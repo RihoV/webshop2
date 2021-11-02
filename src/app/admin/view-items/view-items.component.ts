@@ -15,13 +15,19 @@ export class ViewItemsComponent implements OnInit {
 
   //täida items itemsInService väärtusega
   ngOnInit(): void {
-    this.items = this.itemService.itemsInService;
+    // this.items = this.itemService.itemsInService;
+    this.itemService.getItemFromDatabase().subscribe(itemsFromDb => {
+      this.itemService.itemsInService = itemsFromDb;
+      this.items = itemsFromDb;
+    });
   }
 
   onRemoveItem(item: Item){
     // tehtud varem cart.component seest removeFromCart(item: any);
     let index = this.itemService.itemsInService.indexOf(item);
     this.itemService.itemsInService.splice(index,1);
+    this.itemService.addItemsToDatabase().subscribe();
+
     this.items = this.itemService.itemsInService;
   }
 

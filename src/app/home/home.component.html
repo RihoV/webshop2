@@ -17,7 +17,7 @@
     <img routerLink="ese/{{item.title}}" src="{{item.imgSrc}}" alt=""> 
     <!-- kaldkriipsud imgage title sees ei tööta -->
     <div>{{ item.title }}</div>
-    <div>{{ item.price }} €</div>
+    <div>{{ item.price | itemPrice }} </div>   <!-- € /div ette -->
     <div>{{ item.category }}</div>
     <div>{{ item.isActive }}</div>
 

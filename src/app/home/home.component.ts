@@ -24,7 +24,12 @@ export class HomeComponent implements OnInit {
     
  
   ngOnInit(): void {
-    this.items = this.itemService.itemsInService;
+    //this.items = this.itemService.itemsInService;
+    //võtmise pool ümber teha
+    this.itemService.getItemFromDatabase().subscribe(itemsFromDb => {
+      this.itemService.itemsInService = itemsFromDb;
+      this.items = itemsFromDb;
+    });
 
     console.log("Jõudsin Home componenti");
   }
@@ -32,12 +37,19 @@ export class HomeComponent implements OnInit {
   //saates peab olema see muutuja olemas
  //vastuvõttes peab olema tüüp 
 onAddToCart(item: Item) {
-  console.log(item);
-  //console.log(this.items);
-  //console.log("Vajutati nuppu!");
-  console.log(item.title + " lisati ostukorvi");
-
+  //console.log(item.title + " lisati ostukorvi");
+  //lisab service-i sisse vasakul pool võrdusmärki
+                  // paremal pool võrdusmärki annab väärtuse
+                  // võtab browseri localStorage seest võtme "cart" abil väärtuse
+                  // kartis, et ei saa kätte(on tühi) ja seega pidin tegema "as string"
+                  // seejärel teen selle stringi (kui sai kätte või ei saanud kätte - mõlemal juhul)
+                          // JSON kujul JSON.parse abil
+                  // kui ta ei saanud korrektsel JSON kujule teha, siis paneb asemele tühi massiivi
+  this.cartService.cartItemsInService = JSON.parse(localStorage.getItem("cart") as string) || [];   // ||
   this.cartService.cartItemsInService.push(item);
+          // panen localhostStoragesse , anna võtmeks "cart"
+          // väärtuse teen "string" kujule, sest localStorage nõuab kõiki väärtuseid string kujul
+  localStorage.setItem("cart", JSON.stringify(this.cartService.cartItemsInService));
 }
 
 

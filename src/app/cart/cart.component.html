@@ -21,9 +21,9 @@
     -->
 <div *ngFor="let cartItem of cartItems">
     <div>{{cartItem.title}}</div>
-    <div>{{cartItem.price}}</div>
-    <div>{{cartItem.imgSrc}}</div>
-    <button (click)="onRemoveFromCart(cartItem)">x</button>
+    <div>{{cartItem.price | itemPrice}}</div>
+    <img src={{cartItem.imgSrc}} alt="imgage"> <br>
+    <button (click)="onRemoveFromCart(cartItem)">x</button> <br>br
     <!-- TS: onRemoveFromCart({title: "Ese1", price: "123", ...})
             onRemoveFromCart({title: "Ese1", price: "123", ...}) {
                 console.log({title: "Ese1", price: "123", ...})
@@ -67,4 +67,4 @@
 
 <br /><br />
 <!-- <div>{{ sumOfCart }}</div> -->
-<div *ngIf="cartItems.length > 0">Ostukorvi maksumus: ${{ sumOfCart }}</div>
+<div *ngIf="cartItems.length > 0">Ostukorvi maksumus: {{ sumOfCart | itemPrice }}</div>

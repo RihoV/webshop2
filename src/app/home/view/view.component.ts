@@ -31,29 +31,34 @@ export class ViewComponent implements OnInit {
 
   ngOnInit(): void {
     //this.id = this.route.snapshot.paramMap.get("itemId");
+    this.itemService.getItemFromDatabase().subscribe(itemsFromDb => {
+      this.itemService.itemsInService = itemsFromDb;
 
-    let urlID = this.route.snapshot.paramMap.get("itemId");
-    if(urlID){
-        this.id = urlID;
-    }
-                    // [{title: "Ese1"},{},{}].find();
+      let urlID = this.route.snapshot.paramMap.get("itemId");
+      if(urlID){
+          this.id = urlID;
+      }
+                      // [{title: "Ese1"},{},{}].find();
+  
+                      //.find({title: "Ese1"} => item.title == this.id)
+                      //.find({title: "Ese2"} => item.title == this.id)
+                      //.find({title: "Ese3"} => item.title == this.id)
+  
+                      //.find({title: "Ese1"} => item.title == "itemId kaudu välja url-st")
+                      //.find({title: "Ese2"} => item.title == "itemId kaudu välja url-st")
+                      //.find({title: "Ese3"} => item.title == "itemId kaudu välja url-st")
+  
+      // console.log(this.id);
+      //this.item = this.itemService.itemsInService.find(item => item.title == this.id);
+  
+      let urlFind = this.itemService.itemsInService.find(item => item.title == this.id);
+      if(urlFind){
+          this.item = urlFind;
+      }
+      // console.log(this.item);
 
-                    //.find({title: "Ese1"} => item.title == this.id)
-                    //.find({title: "Ese2"} => item.title == this.id)
-                    //.find({title: "Ese3"} => item.title == this.id)
+    });
 
-                    //.find({title: "Ese1"} => item.title == "itemId kaudu välja url-st")
-                    //.find({title: "Ese2"} => item.title == "itemId kaudu välja url-st")
-                    //.find({title: "Ese3"} => item.title == "itemId kaudu välja url-st")
-
-    // console.log(this.id);
-    //this.item = this.itemService.itemsInService.find(item => item.title == this.id);
-
-    let urlFind = this.itemService.itemsInService.find(item => item.title == this.id);
-    if(urlFind){
-        this.item = urlFind;
-    }
-    // console.log(this.item);
     }
     
     addToCart(item: Item) {

@@ -1,23 +1,14 @@
+
 // .products{
-//     display: block;
-//     display: grid;
-//     margin-left: auto;
-//     margin-right: auto;
-// }
-.products{
-    border-style: groove;
-    float: middle;
-    width: 10%;
-    padding: 5px;
+//     border-style: groove;
+//     float: middle;
+//     width: 10%;
+//     padding: 5px;
     
-    
-}
+//      }
 
-.pics:hover{
-    border: 1px solid rgb(0, 0, 0);
-}
-
-.pics{
-    max-width: 100%;
+img {
     height: 200px;
+    width: 150px;
+    
 }
