@@ -9,6 +9,9 @@ import { ItemService } from '../services/item.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  itemWordCount = 3;
+
+
   // kooloniga annab tüübi, võrdusmäärgiga väärtuse
   items: Item[] = [];
 
@@ -50,6 +53,8 @@ onAddToCart(item: Item) {
           // panen localhostStoragesse , anna võtmeks "cart"
           // väärtuse teen "string" kujule, sest localStorage nõuab kõiki väärtuseid string kujul
   localStorage.setItem("cart", JSON.stringify(this.cartService.cartItemsInService));
+
+  this.cartService.cartItemsChanged.next();
 }
 
 

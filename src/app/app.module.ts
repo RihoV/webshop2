@@ -22,6 +22,7 @@ import { ViewUsersComponent } from './admin/users/view-users/view-users.componen
 import { AddUserComponent } from './admin/users/add-user/add-user.component';
 import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
 import { ItemPricePipe } from './pipes/item-price.pipe';
+import { ShortenTitlePipe } from './pipes/shorten-title.pipe';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ItemPricePipe } from './pipes/item-price.pipe';
     ViewUsersComponent,
     AddUserComponent,
     EditUserComponent,
-    ItemPricePipe
+    ItemPricePipe,
+    ShortenTitlePipe
   ],
   imports: [
     BrowserModule,

@@ -49,6 +49,8 @@ export class CartComponent implements OnInit {
     //  nii mitu korda, kui on elemente massiivis
 
     localStorage.setItem("cart", JSON.stringify(this.cartService.cartItemsInService));
+
+    this.cartService.cartItemsChanged.next();
   }
 
   onRemoveFromCart(cartItem: Item) {
@@ -61,6 +63,8 @@ export class CartComponent implements OnInit {
     this.cartItems.forEach(cartItem=>this.sumOfCart = this.sumOfCart + cartItem.price);
 
     localStorage.setItem("cart", JSON.stringify(this.cartService.cartItemsInService));
+
+    this.cartService.cartItemsChanged.next();
   }
 
 

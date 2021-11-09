@@ -10,5 +10,8 @@
         <img height="50" width="50" src="assets/estonia.png">
     </button>
 
-    <img class="cart-button" routerLink="ostukorv" src="assets/cart.svg" alt="">
+    <div>
+        <img class="cart-button" routerLink="ostukorv" src="assets/cart.svg" alt="">
+        <div>{{sumOfCart | itemPrice}}</div>
+    </div>
 </div>
