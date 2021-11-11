@@ -23,6 +23,8 @@ import { AddUserComponent } from './admin/users/add-user/add-user.component';
 import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
 import { ItemPricePipe } from './pipes/item-price.pipe';
 import { ShortenTitlePipe } from './pipes/shorten-title.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselComponent } from './admin/carousel/carousel.component';
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import { ShortenTitlePipe } from './pipes/shorten-title.pipe';
     AddUserComponent,
     EditUserComponent,
     ItemPricePipe,
-    ShortenTitlePipe
+    ShortenTitlePipe,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { ShortenTitlePipe } from './pipes/shorten-title.pipe';
             useFactory: HttpLoaderFactory,
             deps: [HttpClient]
         }
-    })
+    }),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

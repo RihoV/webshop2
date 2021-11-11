@@ -1,3 +1,20 @@
+<!-- bootstrap carousel -->
+
+<ngb-carousel class="carousel-wrapper" *ngIf="images">
+    <ng-template *ngFor="let image of images" ngbSlide >
+      <div class="picsum-img-wrapper">
+        <img src="{{image.url}}" alt={{image.alt}}> <!-- muutsime [src]="images[0]" ära  src="{{images[0]}}"  -->
+      </div>
+      <div class="carousel-caption">
+        <h3>{{image.header}}</h3>
+        <p>{{image.text}}</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+
+<!-- end of bootstrap carousel -->
+
 <input 
     type="range" 
     min="0" 
@@ -23,7 +40,7 @@
 <div class="products" *ngFor="let item of items">
     <div *ngIf="item.isActive">
         <!-- <img src="{{item.imgSrc}}" alt=""> -->
-    <img routerLink="ese/{{item.title}}" src="{{item.imgSrc}}" alt=""> 
+    <img class="item-img" routerLink="ese/{{item.title}}" src="{{item.imgSrc}}" alt=""> 
     <!-- kaldkriipsud imgage title sees ei tööta -->
     <div>{{ item.title | shortenTitle:itemWordCount }}</div>
     <div>{{ item.price | itemPrice }} </div>   <!-- € /div ette -->
@@ -41,3 +58,4 @@
  -->
 
  <!-- teatmik.ee - palkade statistika   | -->
+ <!-- "ng build" + "firebase deploy" uuendab rioangular.web.com veebilehte -->

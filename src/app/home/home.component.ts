@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CarouselImage } from '../models/carousel-image-model';
 import { Item } from '../models/item.model';
+import { CarouselService } from '../services/carousel.service';
 import { CartService } from '../services/cart.service';
 import { ItemService } from '../services/item.service';
 
@@ -9,6 +11,20 @@ import { ItemService } from '../services/item.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  images: CarouselImage[] = [];
+
+  //images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);  //bootstrap carousel images
+
+  // images = [
+  //   {url: "https://picsum.photos/id/700/900/500", header: "Header1", text: "Text1", alt: "Alt1"},
+  //   {url: "https://picsum.photos/id/533/900/500", header: "Header2", text: "Text2", alt: "Alt2"},
+  //   {url: "https://picsum.photos/id/807/900/500", header: "Header3", text: "Text3", alt: "Alt3"},
+  //   {url: "https://picsum.photos/id/124/900/500", header: "Header4", text: "Text4", alt: "Alt4"}];
+
+    //bootstrap carousel pildid, sama lahendus nagu images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
+
   itemWordCount = 3;
 
 
@@ -23,10 +39,13 @@ export class HomeComponent implements OnInit {
   //  nimetus väikese tähega
 
   constructor(private cartService: CartService,
-    private itemService: ItemService) { }
+    private itemService: ItemService,
+    private carouselService: CarouselService) { }
     
  
   ngOnInit(): void {
+    this.images =this.carouselService.carouselImagesInService;
+
     //this.items = this.itemService.itemsInService;
     //võtmise pool ümber teha
     this.itemService.getItemFromDatabase().subscribe(itemsFromDb => {
